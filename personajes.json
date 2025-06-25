@@ -1,0 +1,340 @@
+[
+    {
+        "id": 1,
+        "Nombre": "Capitán América",
+        "Universo": "Marvel",
+        "RolDePersonaje": "Vanguardia",
+        "Armas": "Escudo",
+        "Salud": 100,
+        "origen": {
+            "nombre": "Tierra",
+            "url": "https://marvel.com/earth"
+        },
+        "FechaCreacion": "2025-06-24T20:31:24.099899"
+    },
+    {
+        "id": 2,
+        "Nombre": "Iron Man",
+        "Universo": "Marvel",
+        "RolDePersonaje": "Vanguardia",
+        "Armas": "Repulsores",
+        "Salud": 100,
+        "origen": {
+            "nombre": "Tierra",
+            "url": "https://marvel.com/ironman"
+        },
+        "FechaCreacion": "2025-06-24T20:31:24.099899"
+    },
+    {
+        "id": 3,
+        "Nombre": "Spider-Man",
+        "Universo": "Marvel",
+        "RolDePersonaje": "Movilidad",
+        "Armas": "Telarañas",
+        "Salud": 90,
+        "origen": {
+            "nombre": "Tierra",
+            "url": "https://marvel.com/spiderman"
+        },
+        "FechaCreacion": "2025-06-24T20:31:24.099899"
+    },
+    {
+        "id": 4,
+        "Nombre": "Loki",
+        "Universo": "Marvel",
+        "RolDePersonaje": "Control",
+        "Armas": "Magia",
+        "Salud": 80,
+        "origen": {
+            "nombre": "Asgard",
+            "url": "https://marvel.com/loki"
+        },
+        "FechaCreacion": "2025-06-24T20:31:24.099899"
+    },
+    {
+        "id": 5,
+        "Nombre": "Doctor Strange",
+        "Universo": "Marvel",
+        "RolDePersonaje": "Soporte",
+        "Armas": "Hechizos",
+        "Salud": 90,
+        "origen": {
+            "nombre": "Tierra",
+            "url": "https://marvel.com/doctorstrange"
+        },
+        "FechaCreacion": "2025-06-24T20:31:24.099899"
+    },
+    {
+        "id": 6,
+        "Nombre": "Magneto",
+        "Universo": "Marvel",
+        "RolDePersonaje": "Control",
+        "Armas": "Magnetismo",
+        "Salud": 100,
+        "origen": {
+            "nombre": "Tierra",
+            "url": "https://marvel.com/magneto"
+        },
+        "FechaCreacion": "2025-06-24T20:31:24.099899"
+    },
+    {
+        "id": 7,
+        "Nombre": "Storm",
+        "Universo": "Marvel",
+        "RolDePersonaje": "Movilidad",
+        "Armas": "Clima",
+        "Salud": 90,
+        "origen": {
+            "nombre": "África",
+            "url": "https://marvel.com/storm"
+        },
+        "FechaCreacion": "2025-06-24T20:31:24.099899"
+    },
+    {
+        "id": 8,
+        "Nombre": "Scarlet Witch",
+        "Universo": "Marvel",
+        "RolDePersonaje": "Control",
+        "Armas": "Magia del Caos",
+        "Salud": 85,
+        "origen": {
+            "nombre": "Sokovia",
+            "url": "https://marvel.com/scarletwitch"
+        },
+        "FechaCreacion": "2025-06-24T20:31:24.099899"
+    },
+    {
+        "id": 9,
+        "Nombre": "Rocket Raccoon",
+        "Universo": "Marvel",
+        "RolDePersonaje": "Daño",
+        "Armas": "Armas pesadas",
+        "Salud": 80,
+        "origen": {
+            "nombre": "Halfworld",
+            "url": "https://marvel.com/rocket"
+        },
+        "FechaCreacion": "2025-06-24T20:31:24.099899"
+    },
+    {
+        "id": 10,
+        "Nombre": "Groot",
+        "Universo": "Marvel",
+        "RolDePersonaje": "Soporte",
+        "Armas": "Ramas",
+        "Salud": 120,
+        "origen": {
+            "nombre": "Planeta X",
+            "url": "https://marvel.com/groot"
+        },
+        "FechaCreacion": "2025-06-24T20:31:24.099899"
+    },
+    {
+        "id": 11,
+        "Nombre": "Ironheart",
+        "Universo": "Marvel",
+        "RolDePersonaje": "Vanguardia",
+        "Armas": "Armadura",
+        "Salud": 95,
+        "origen": {
+            "nombre": "Tierra",
+            "url": "https://marvel.com/ironheart"
+        },
+        "FechaCreacion": "2025-06-24T20:31:24.099899"
+    },
+    {
+        "id": 12,
+        "Nombre": "Luna Snow",
+        "Universo": "Marvel",
+        "RolDePersonaje": "Soporte",
+        "Armas": "Hielo",
+        "Salud": 85,
+        "origen": {
+            "nombre": "Corea del Sur",
+            "url": "https://marvel.com/lunasnow"
+        },
+        "FechaCreacion": "2025-06-24T20:31:24.099899"
+    },
+    {
+        "id": 13,
+        "Nombre": "Peni Parker",
+        "Universo": "Marvel",
+        "RolDePersonaje": "Movilidad",
+        "Armas": "Robot SP//dr",
+        "Salud": 90,
+        "origen": {
+            "nombre": "Tierra-14512",
+            "url": "https://marvel.com/peniparker"
+        },
+        "FechaCreacion": "2025-06-24T20:31:24.099899"
+    },
+    {
+        "id": 14,
+        "Nombre": "Black Panther",
+        "Universo": "Marvel",
+        "RolDePersonaje": "Vanguardia",
+        "Armas": "Garras",
+        "Salud": 95,
+        "origen": {
+            "nombre": "Wakanda",
+            "url": "https://marvel.com/blackpanther"
+        },
+        "FechaCreacion": "2025-06-24T20:31:24.099899"
+    },
+    {
+        "id": 15,
+        "Nombre": "Namor",
+        "Universo": "Marvel",
+        "RolDePersonaje": "Control",
+        "Armas": "Tridente",
+        "Salud": 100,
+        "origen": {
+            "nombre": "Atlántida",
+            "url": "https://marvel.com/namor"
+        },
+        "FechaCreacion": "2025-06-24T20:31:24.099899"
+    },
+    {
+        "id": 16,
+        "Nombre": "Hela",
+        "Universo": "Marvel",
+        "RolDePersonaje": "Control",
+        "Armas": "Espadas mágicas",
+        "Salud": 95,
+        "origen": {
+            "nombre": "Hel",
+            "url": "https://marvel.com/hela"
+        },
+        "FechaCreacion": "2025-06-24T20:31:24.099899"
+    },
+    {
+        "id": 17,
+        "Nombre": "Venom",
+        "Universo": "Marvel",
+        "RolDePersonaje": "Vanguardia",
+        "Armas": "Simbionte",
+        "Salud": 110,
+        "origen": {
+            "nombre": "Tierra",
+            "url": "https://marvel.com/venom"
+        },
+        "FechaCreacion": "2025-06-24T20:31:24.099899"
+    },
+    {
+        "id": 18,
+        "Nombre": "The Punisher",
+        "Universo": "Marvel",
+        "RolDePersonaje": "Daño",
+        "Armas": "Arsenal",
+        "Salud": 90,
+        "origen": {
+            "nombre": "Tierra",
+            "url": "https://marvel.com/punisher"
+        },
+        "FechaCreacion": "2025-06-24T20:31:24.099899"
+    },
+    {
+        "id": 19,
+        "Nombre": "Wolverine",
+        "Universo": "Marvel",
+        "RolDePersonaje": "Vanguardia",
+        "Armas": "Garras",
+        "Salud": 120,
+        "origen": {
+            "nombre": "Canadá",
+            "url": "https://marvel.com/wolverine"
+        },
+        "FechaCreacion": "2025-06-24T20:31:24.099899"
+    },
+    {
+        "id": 20,
+        "Nombre": "Deadpool",
+        "Universo": "Marvel",
+        "RolDePersonaje": "Daño",
+        "Armas": "Katana",
+        "Salud": 95,
+        "origen": {
+            "nombre": "Tierra",
+            "url": "https://marvel.com/deadpool"
+        },
+        "FechaCreacion": "2025-06-24T20:31:24.099899"
+    },
+    {
+        "id": 21,
+        "Nombre": "Ghost-Spider",
+        "Universo": "Marvel",
+        "RolDePersonaje": "Movilidad",
+        "Armas": "Telarañas",
+        "Salud": 90,
+        "origen": {
+            "nombre": "Tierra-65",
+            "url": "https://marvel.com/ghostspider"
+        },
+        "FechaCreacion": "2025-06-24T20:31:24.099899"
+    },
+    {
+        "id": 22,
+        "Nombre": "Ms. Marvel",
+        "Universo": "Marvel",
+        "RolDePersonaje": "Soporte",
+        "Armas": "Elasticidad",
+        "Salud": 85,
+        "origen": {
+            "nombre": "Jersey City",
+            "url": "https://marvel.com/msmarvel"
+        },
+        "FechaCreacion": "2025-06-24T20:31:24.099899"
+    },
+    {
+        "id": 23,
+        "Nombre": "She-Hulk",
+        "Universo": "Marvel",
+        "RolDePersonaje": "Vanguardia",
+        "Armas": "Fuerza",
+        "Salud": 110,
+        "origen": {
+            "nombre": "Tierra",
+            "url": "https://marvel.com/shehulk"
+        },
+        "FechaCreacion": "2025-06-24T20:31:24.099899"
+    },
+    {
+        "id": 24,
+        "Nombre": "Blade",
+        "Universo": "Marvel",
+        "RolDePersonaje": "Daño",
+        "Armas": "Espada",
+        "Salud": 100,
+        "origen": {
+            "nombre": "Tierra",
+            "url": "https://marvel.com/blade"
+        },
+        "FechaCreacion": "2025-06-24T20:31:24.099899"
+    },
+    {
+        "id": 25,
+        "Nombre": "Spawn",
+        "Universo": "Marvel",
+        "RolDePersonaje": "Daño",
+        "Armas": "Magia",
+        "Salud": 100,
+        "origen": {
+            "nombre": "Tierra",
+            "url": "https://marvel.com/spawn"
+        },
+        "FechaCreacion": "2025-06-24T20:31:24.099899"
+    },
+    {
+        "id": 26,
+        "Nombre": "Black Widow",
+        "Universo": "Marvel",
+        "RolDePersonaje": "Duelista",
+        "Armas": "Beso de viuda",
+        "Salud": 250,
+        "origen": {
+            "nombre": "Tierra",
+            "url": "https://www.marvel.com/movies/black-widow"
+        },
+        "FechaCreacion": "2025-06-24T20:31:24.099899"
+    }
+]
