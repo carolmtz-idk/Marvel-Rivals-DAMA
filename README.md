@@ -47,10 +47,12 @@ Esta API está en construcción, pero ya tiene funciones principales como lectur
 
 ## Autores
 María Fernanda Morán Rodea
+https://github.com/fernanda-91
 
 Álvaro Fabián Ovalle Antonio
 
 Allan Daniel Soria Palomo
+https://github.com/ALLAN101101
 
 Diana Carolina García Martínez
 
