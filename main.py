@@ -1,12 +1,9 @@
-from fastapi import FastAPI, Request, HTTPException, Query, Header# librería para crear APIs.
+from fastapi import FastAPI, Request# librería para crear APIs.
 from endpoints import router
 from fastapi.responses import JSONResponse
 from fastapi.exceptions import RequestValidationError
 import requests
-import os
-from dotenv import load_dotenv
 
-load_dotenv()
 app = FastAPI() #instancia de la aplicacion 
 app.include_router(router) #este conecta los endpoints a la aplicacion FastAPI
 
