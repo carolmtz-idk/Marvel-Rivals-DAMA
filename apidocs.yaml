@@ -1,0 +1,79 @@
+openapi: 3.0.4
+info:
+  title: API de personajes de Marvel Rivals
+  description: |
+    Una API desarrollada en Python que permite gestionar personajes del universo Marvel Rivals. El proyecto permite agregar personajes nuevos, realizar paginación de resultados, y está conectado con X (Twitter) para obtener publicaciones recientes relacionadas con Marvel Rivals.
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/api/v1
+paths:
+  /personajes:
+    get:
+      tags:
+        - personajes
+      summary: Trae la lista de personajes
+      description: Trae la lista de los superheroes registrados en la base de datos.
+      operationId: getPersonajesList
+      parameters:
+        - in: query
+          name: page
+          schema:
+            type: integer
+            example: 1
+          description: Pagina de la lista de elementos, cada pagina es de 10 
+      responses:
+        '200':
+          description: Lista de personajes de Marvel Rivals
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Personajes'
+                
+components:
+  schemas:
+    Personajes:
+      type: object
+      required:
+      - id
+      - Nombre
+      - Universo
+      - RolDePersonaje
+      - Armas
+      - Salud
+      - origen
+      - FechaCreacion
+      properties:
+        id:
+          type: integer
+          example: 1
+        Nombre:
+          type: string
+          example: Groot
+        Universo:
+          type: string
+          example: Marvel
+        RolDePersonaje:
+          type: string
+          example: "Soporte"
+        Armas:
+          type: string
+          example: "Ramas"
+        Salud: 
+          type: integer
+          example: "120"
+        origen: 
+          type: string
+          example: "Planeta X"
+        FechaCreacion:
+          type: string
+          example: "2025-06-24T20:31:24.099899"
+        
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
