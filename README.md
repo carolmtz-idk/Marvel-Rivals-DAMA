@@ -50,10 +50,14 @@ María Fernanda Morán Rodea
 https://github.com/fernanda-91
 
 Álvaro Fabián Ovalle Antonio
+https://github.com/Fabian-o11
 
 Allan Daniel Soria Palomo
 https://github.com/ALLAN101101
 
 Diana Carolina García Martínez
+
+Kevin Joshua Lopez Iracheta
+https://github.com/joshua085
 
 
