@@ -1,4 +1,3 @@
-openapi: 3.0.4
 info:
   title: API de personajes de Marvel Rivals
   description: |
@@ -7,7 +6,35 @@ info:
 servers:
   - url: http://localhost:3000/api/v1
 paths:
-  /personajes:
+  /api/personajes:
+    post:
+      tags:
+        - personajes
+      summary: Crear nuevo personaje
+      description: Agregar un nuevo personaje a la lista.
+      operationId: crearPersonaje
+      requestBody:
+        description: Personaje a crear
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PersonajesReqBody'
+      responses:
+        '201':
+          description: Alumno creado exitosamente
+          content:
+            application/json:
+              schema:
+                  $ref: '#/components/schemas/Personajes'
+        '400':
+            description: Datos Invalidos
+        default:
+            description: Error Inesperado
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/PersonajesResError'
     get:
       tags:
         - personajes
@@ -29,10 +56,49 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Personajes'
-                
+                  $ref: '#/components/schemas/Personajes'                
 components:
   schemas:
+    PersonajesResError:
+      type: object
+      require:
+      - message
+      - status
+      properties:
+        message:
+          type: string
+          example: El campo "Nombre" es requerido
+        status:
+          type: string
+          example: ERROR
+    PersonajesReqBody:
+      type: object
+      required:
+      - Nombre
+      - Universo
+      - RolDePersonaje
+      - Armas
+      - Salud
+      - origen
+      properties:
+        Nombre:
+          type: string
+          example: Groot
+        Universo:
+          type: string
+          example: Marvel
+        RolDePersonaje:
+          type: string
+          example: "Soporte"
+        Armas:
+          type: string
+          example: "Ramas"
+        Salud: 
+          type: integer
+          example: "120"
+        origen: 
+          type: string
+          example: "Planeta X"
     Personajes:
       type: object
       required:
