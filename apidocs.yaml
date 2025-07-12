@@ -1,3 +1,4 @@
+openapi: 3.0.4
 info:
   title: API de personajes de Marvel Rivals
   description: |
@@ -61,7 +62,7 @@ components:
   schemas:
     PersonajesResError:
       type: object
-      require:
+      required:
       - message
       - status
       properties:
@@ -116,10 +117,10 @@ components:
           example: 1
         Nombre:
           type: string
-          example: Groot
+          example: "Groot"
         Universo:
           type: string
-          example: Marvel
+          example: "Marvel"
         RolDePersonaje:
           type: string
           example: "Soporte"
@@ -130,8 +131,20 @@ components:
           type: integer
           example: "120"
         origen: 
-          type: string
-          example: "Planeta X"
+          type: object
+          required: 
+            - nombre
+            - url
+          properties:
+            nombre: 
+              type: string
+              example: "Planeta X"
+            url:
+              type: string
+              example: "https://marvel.com/groot"
+          
+          
+          
         FechaCreacion:
           type: string
           example: "2025-06-24T20:31:24.099899"
@@ -140,6 +153,3 @@ components:
       type: object
       properties:
         code:
-          type: string
-        message:
-          type: string
