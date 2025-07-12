@@ -5,9 +5,9 @@ info:
     Una API desarrollada en Python que permite gestionar personajes del universo Marvel Rivals. El proyecto permite agregar personajes nuevos, realizar paginación de resultados, y está conectado con X (Twitter) para obtener publicaciones recientes relacionadas con Marvel Rivals.
   version: 1.0.0
 servers:
-  - url: http://localhost:3000/api/v1
+  - url: http://localhost:8000/
 paths:
-  /api/personajes:
+  /personajes:
     post:
       tags:
         - personajes
@@ -22,16 +22,16 @@ paths:
             schema:
               $ref: '#/components/schemas/PersonajesReqBody'
       responses:
-        '201':
-          description: Alumno creado exitosamente
+        '200':
+          description: Personaje creado exitosamente
           content:
             application/json:
               schema:
-                  $ref: '#/components/schemas/Personajes'
-        '400':
+                  $ref: '#/components/schemas/PersonajeRespuestaExitosa'
+        '422':
             description: Datos Invalidos
         default:
-            description: Error Inesperado
+            description: El campo 'Nombre' es requerido. Field required
             content:
               application/json:
                 schema:
@@ -66,12 +66,11 @@ components:
       - message
       - status
       properties:
-        message:
-          type: string
-          example: El campo "Nombre" es requerido
-        status:
-          type: string
-          example: ERROR
+        mensaje_error:
+          type: array
+          items: string
+          example:
+            - "El campo 'Nombre' es requerido. Field required"
     PersonajesReqBody:
       type: object
       required:
@@ -98,8 +97,18 @@ components:
           type: integer
           example: "120"
         origen: 
-          type: string
-          example: "Planeta X"
+          type: object
+          required: 
+            - nombre
+            - url
+          properties:
+            nombre: 
+              type: string
+              example: "Planeta X"
+            url:
+              type: string
+              example: "https://marvel.com/groot"
+
     Personajes:
       type: object
       required:
@@ -142,12 +151,21 @@ components:
             url:
               type: string
               example: "https://marvel.com/groot"
-          
-          
-          
         FechaCreacion:
           type: string
           example: "2025-06-24T20:31:24.099899"
+          
+    PersonajeRespuestaExitosa:
+      type: object
+      required:
+      - mensaje
+      - personaje
+      properties:
+        mensaje:
+          type: string
+          example: "Personaje agregado exitosamente"
+        personaje:
+          $ref: '#/components/schemas/Personajes'
         
     Error:
       type: object
