@@ -8,6 +8,57 @@ servers:
   - url: http://localhost:8000/
 paths:
   /personajes:
+    get:
+      tags:
+        - personajes
+      summary: Trae la lista de personajes
+      description: Trae la lista de los superheroes registrados en la base de datos.
+      operationId: getPersonajesList
+      parameters:
+        - in: query
+          name: page
+          schema:
+            type: integer
+            example: 1
+          description: Pagina de la lista de elementos, cada pagina es de 10 
+      responses:
+        '200':
+          description: Lista de personajes de Marvel Rivals
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Personajes'  
+  /personajes/media:                
+    get:
+      tags:
+        - personajes
+      summary: Obtener tuits con medios relacionados con Marvel Rivals
+      description: Devuelve una lista de tuits obtenidos desde X (Twitter) que contienen medios y están relacionados con Marvel Rivals.
+      operationId: getTuitsConMedios
+      responses:
+        '200':
+          description: Lista de tuits con medios
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Tweets'
+        '429':
+          description: Demasiadas solicitudes a la API de Twitter
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TwitterErrorResponse'
+        '401':
+          description: No autorizado. Token de acceso inválido o ausente.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TwitterUnauthorizedResponse'
+  /personajes/ElementosPOST:
     post:
       tags:
         - personajes
@@ -36,30 +87,137 @@ paths:
               application/json:
                 schema:
                   $ref: '#/components/schemas/PersonajesResError'
-    get:
-      tags:
-        - personajes
-      summary: Trae la lista de personajes
-      description: Trae la lista de los superheroes registrados en la base de datos.
-      operationId: getPersonajesList
-      parameters:
-        - in: query
-          name: page
-          schema:
-            type: integer
-            example: 1
-          description: Pagina de la lista de elementos, cada pagina es de 10 
-      responses:
-        '200':
-          description: Lista de personajes de Marvel Rivals
+        '409':
+          description: Este personaje ya existe.
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Personajes'                
+                  $ref: '#/components/schemas/PersonajeYaExiste'
+
+
+  /personajes/{id}:
+    get:
+      summary: Obtener un personaje por ID
+      description: Devuelve los datos del personaje que coincida con el ID proporcionado.
+      operationId: obtenerPersonaje
+      tags:
+        - personajes
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID del personaje a buscar
+          schema:
+            type: integer
+            example: 1
+      responses:
+        '200':
+          description: Información del personaje encontrada.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Personajes'
+        '404':
+          description: Personaje no encontrado.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorID'
+    delete:
+      summary: Eliminar un personaje
+      description: Elimina un personaje por su ID.
+      operationId: deletePersonaje
+      tags:
+        - personajes
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID del personaje a eliminar
+          schema:
+            type: integer
+            example: 1
+      responses:
+        '200':
+          description: Personaje eliminado correctamente.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  mensaje:
+                    type: string
+                    example: "Personaje eliminado correctamente"
+        '404':
+          description: Personaje no encontrado.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  detail:
+                    type: string
+                    example: "Personaje no encontrado"
 components:
   schemas:
+    Tweets:
+      type: object
+      required:
+        - id
+        - texto
+        - autor
+      properties:
+        id:
+          type: string
+          example: "1945211837542244631"
+        texto:
+          type: string
+          example: "🛠 Hero Balance Patch incoming on July 17 at 9:00 AM UTC! Check  out the full balance patch here >> https://t.co/EMQWAAXFU0"
+        autor:
+          type: string
+          example: "1726712518155046912"
+    TwitterErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+          example: "No se pudieron obtener los tweets, demasiados intentos"
+        detalle:
+          type: object
+          properties:
+            title:
+              type: string
+              example: "Too Many Requests"
+            detail:
+              type: string
+              example: "Too Many Requests"
+            type:
+              type: string
+              example: "about:blank"
+            status:
+              type: integer
+              example: 429
+    TwitterUnauthorizedResponse:
+      type: object
+      properties:
+        error:
+          type: string
+          example: "No se pudieron obtener los tweets"
+        detalle:
+          type: object
+          properties:
+            title:
+              type: string
+              example: "Unauthorized"
+            type:
+              type: string
+              example: "about:blank"
+            status:
+              type: integer
+              example: 401
+            detail:
+              type: string
+              example: "Unauthorized"
     PersonajesResError:
       type: object
       required:
@@ -68,9 +226,16 @@ components:
       properties:
         mensaje_error:
           type: array
-          items: string
+          items:
+            type: string 
           example:
             - "El campo 'Nombre' es requerido. Field required"
+    PersonajeYaExiste:
+      type: object
+      properties:
+        detail:
+          type: string
+          example: Ya existe un personaje con el nombre 'Groot'
     PersonajesReqBody:
       type: object
       required:
@@ -108,7 +273,17 @@ components:
             url:
               type: string
               example: "https://marvel.com/groot"
-
+    PersonajeRespuestaExitosa:
+      type: object
+      required:
+      - mensaje
+      - personaje
+      properties:
+        mensaje:
+          type: string
+          example: "Personaje agregado exitosamente"
+        personaje:
+          $ref: '#/components/schemas/Personajes'
     Personajes:
       type: object
       required:
@@ -154,18 +329,12 @@ components:
         FechaCreacion:
           type: string
           example: "2025-06-24T20:31:24.099899"
-          
-    PersonajeRespuestaExitosa:
+    ErrorID:
       type: object
-      required:
-      - mensaje
-      - personaje
       properties:
-        mensaje:
+        detail:
           type: string
-          example: "Personaje agregado exitosamente"
-        personaje:
-          $ref: '#/components/schemas/Personajes'
+          example: "No se encontró el personaje con ID 1"
         
     Error:
       type: object
