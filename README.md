@@ -37,8 +37,10 @@ Obtener publicaciones recientes desde X (Twitter) relacionadas con Marvel Rivals
 | Método | Endpoint      | Descripción                                  |
 | ------ | ------------- | -------------------------------------------- |
 | GET    | `/personajes` | Obtener lista de personajes (con paginación) |
-| POST   | `/ElementosPOST/` | Agregar un nuevo personaje               |
+| POST   | `/ElementosPOST/ElementosPOST` | Agregar un nuevo personaje               |
 | GET    | `/personajes/media` | Obtener tweets recientes sobre Marvel Rivals |
+| GET    | `/personajes/{id}` | Obtener un personaje por id  |
+| DELETE | `/personajes/{id}` | Eliminar personaje por id  |
 
 
 ## En desarrollo activo
