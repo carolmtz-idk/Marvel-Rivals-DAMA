@@ -323,18 +323,5 @@
             "url": "https://marvel.com/spawn"
         },
         "FechaCreacion": "2025-06-24T20:31:24.099899"
-    },
-    {
-        "id": 26,
-        "Nombre": "Black Widow",
-        "Universo": "Marvel",
-        "RolDePersonaje": "Duelista",
-        "Armas": "Beso de viuda",
-        "Salud": 250,
-        "origen": {
-            "nombre": "Tierra",
-            "url": "https://www.marvel.com/movies/black-widow"
-        },
-        "FechaCreacion": "2025-06-24T20:31:24.099899"
     }
 ]
