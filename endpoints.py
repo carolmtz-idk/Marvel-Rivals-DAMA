@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Query, HTTPException  #APIRouter permite agrupar las rutas de archivos, Query es para validar y declarar parametros
 from clases import Personaje, Origen, ElementosPOST #se importan las clases del archivo clases.py
-from typing import List #ayuda a definir tipos de datos, osea una lista de personajes
+from typing import List, Optional #ayuda a definir tipos de datos, osea una lista de personajes
 import json #importamos para poder manejar archivos JSON
 from pathlib import Path #Path es para manejar rutas de archivos
 from datetime import datetime #maneja fechas actuales y horas.
@@ -32,13 +32,17 @@ def guardar_personajes(lista):
 
 @router.get("/personajes", response_model=List[Personaje]) #le dice a FastAPI que la respuesta será una lista de objetos tipo Personaje.
 def obtener_personajes( #esta es la funcion, no se puede cortar una funcion, asi que se manda a llamar la variable "personajes_data"
-    pagina: int = Query(1, ge=1), #ge = es un metodo de validacion que significa "mayor o igual que"
+    pagina: Optional[int] = Query(None, ge=1), #ge = es un metodo de validacion que significa "mayor o igual que"
     limite: int = Query(10, ge=1), #query = se usa para obtener los parametros de la url
 ):
     personajes = cargar_personajes()
-    inicio = (pagina - 1) * limite
-    fin = inicio + limite #Se mostrarán los elementos desde el índice 10 hasta el 19.
-    return personajes[inicio:fin]
+    if pagina is not None:
+        inicio = (pagina - 1) * limite
+        fin = inicio + limite
+        return personajes[inicio:fin]
+    else:
+        # Si no se especifica página, devolvemos todo
+        return personajes
 
 @router.post("/personajes/ElementosPOST")
 async def crear_item(item: ElementosPOST):
@@ -129,6 +133,7 @@ def obtener_personaje(personaje_id: int):
         if personaje["id"] == personaje_id:
             return personaje
     raise HTTPException(status_code=404, detail=f"No se encontró el personaje con ID {personaje_id}")
+
 
 
 
